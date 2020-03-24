@@ -37,7 +37,7 @@ function getData(data) {
         enabled: true
       },
       colorAxis: {
-        min: 0,       
+        min: 0,
         tickInterval: 5,
         stops: [
           [0, "#F1EEF6"],
