@@ -1,6 +1,6 @@
 import case_data from "./case_data.js";
 
-function getData(data) {
+(data => {
   const countiesMap = Highcharts.geojson(
       Highcharts.maps["countries/us/us-ma-all"]
     ),
@@ -98,5 +98,4 @@ function getData(data) {
   document.getElementById(
     "total-cases"
   ).innerText = `Total cases: ${totalCases}`;
-}
-getData(case_data.data);
+})(case_data.data);
