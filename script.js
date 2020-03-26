@@ -97,5 +97,5 @@ import case_data from "./case_data.js";
     .reduce((a, b) => a + b, 0);
   document.getElementById(
     "total-cases"
-  ).innerText = `Total cases: ${totalCases}`;
+  ).innerText = `Confirmed cases reported = ${totalCases}`;
 })(case_data.data);
