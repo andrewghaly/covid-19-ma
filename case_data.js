@@ -1,6 +1,11 @@
 export default {
   data: [
     {
+      code: "us-ma-000",
+      name: "Unknown",
+      value: 159
+    },
+    {
       code: "us-ma-001",
       name: "Barnstable County, MA",
       value: 51
@@ -47,7 +52,7 @@ export default {
     },
     {
       code: "us-ma-019",
-      name: "Nantucket County/town, MA",
+      name: "Nantucket County, MA",
       value: 0
     },
     {
@@ -69,11 +74,6 @@ export default {
       code: "us-ma-027",
       name: "Worcester County, MA",
       value: 129
-    },
-    {
-      code: "us-ma-unknown",
-      name: "Unknown",
-      value: 159
     }
   ]
 };
