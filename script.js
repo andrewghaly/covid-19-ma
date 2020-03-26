@@ -91,5 +91,12 @@ function getData(data) {
       ]
     });
   }, 0);
+
+  const totalCases = case_data.data
+    .map(c => c.value)
+    .reduce((a, b) => a + b, 0);
+  document.getElementById(
+    "total-cases"
+  ).innerText = `Total cases: ${totalCases}`;
 }
 getData(case_data.data);

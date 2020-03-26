@@ -69,6 +69,11 @@ export default {
       code: "us-ma-027",
       name: "Worcester County, MA",
       value: 129
+    },
+    {
+      code: "us-ma-unknown",
+      name: "Unknown",
+      value: 159
     }
   ]
 };
