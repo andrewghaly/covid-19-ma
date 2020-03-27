@@ -33,7 +33,7 @@ export default {
     {
       code: "us-ma-011",
       name: "Franklin County, MA",
-      value: 14
+      value: 16
     },
     {
       code: "us-ma-013",
