@@ -3,22 +3,22 @@ export default {
     {
       code: "us-ma-000",
       name: "Unknown",
-      value: 159
+      value: 267
     },
     {
       code: "us-ma-001",
       name: "Barnstable County, MA",
-      value: 51
+      value: 67
     },
     {
       code: "us-ma-003",
       name: "Berkshire County, MA",
-      value: 71
+      value: 73
     },
     {
       code: "us-ma-005",
       name: "Bristol County, MA",
-      value: 67
+      value: 90
     },
     {
       code: "us-ma-007",
@@ -28,7 +28,7 @@ export default {
     {
       code: "us-ma-009",
       name: "Essex County, MA",
-      value: 177
+      value: 247
     },
     {
       code: "us-ma-011",
@@ -38,17 +38,17 @@ export default {
     {
       code: "us-ma-013",
       name: "Hampden County, MA",
-      value: 45
+      value: 55
     },
     {
       code: "us-ma-015",
       name: "Hampshire County, MA",
-      value: 11
+      value: 17
     },
     {
       code: "us-ma-017",
       name: "Middlesex County, MA",
-      value: 446
+      value: 538
     },
     {
       code: "us-ma-019",
@@ -58,22 +58,22 @@ export default {
     {
       code: "us-ma-021",
       name: "Norfolk County, MA",
-      value: 222
+      value: 292
     },
     {
       code: "us-ma-023",
       name: "Plymouth County, MA",
-      value: 101
+      value: 138
     },
     {
       code: "us-ma-025",
       name: "Suffolk County, MA",
-      value: 342
+      value: 448
     },
     {
       code: "us-ma-027",
       name: "Worcester County, MA",
-      value: 129
+      value: 166
     }
   ]
 };
