@@ -28,8 +28,11 @@ let pdfToText = function(url) {
   });
 };
 
-const currentDay = 28; // new Date(new Date().getTime() + -4 * 3600 * 1000).getDate();
-const dataUrl = `https://www.mass.gov/doc/covid-19-cases-in-massachusetts-as-of-march-${currentDay}-2020/download`;
+const currentDay = 28;
+const currentMonth = "March";
+const currentYear = 2020;
+
+const dataUrl = `https://www.mass.gov/doc/covid-19-cases-in-massachusetts-as-of-${currentMonth.toLowerCase()}-${currentDay}-${currentYear}/download`;
 const proxyUrl = "https://andrew-cors-anywhere.herokuapp.com/";
 
 pdfToText(proxyUrl + dataUrl)
@@ -63,5 +66,5 @@ pdfToText(proxyUrl + dataUrl)
     document.getElementById("latest-url").setAttribute("href", dataUrl);
     document.getElementById(
       "latest-url"
-    ).innerText = `Latest Report as of March ${currentDay}, 2020`;
+    ).innerText = `Latest Report as of ${currentMonth} ${currentDay}, ${currentYear}`;
   });
