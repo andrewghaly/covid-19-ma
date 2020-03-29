@@ -3,6 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <title>COVID-19 Cases in Massachusetts</title>
+
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/us/us-ma-all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js"></script>
+    <script type="module" src="modules/case_data.js"></script>
+    <script type="module" src="modules/fetch_data.js"></script>
+    <script type="module" src="modules/create_map.js"></script>
   </head>
 
   <body>
@@ -13,16 +21,6 @@
       Downloading map and latest data...
     </div>
 
-    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/mapdata/countries/us/us-ma-all.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js"></script>
-
-    <script type="module" src="modules/case_data.js"></script>
-    <script type="module" src="modules/fetch_data.js"></script>
-    <script type="module" src="modules/create_map.js"></script>
     <div id="content" style="text-align:center">
       <a id="latest-url" href=""></a>
       <h2 id="total-cases"></h2>
