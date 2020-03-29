@@ -33,7 +33,7 @@ let pdfToText = function(data) {
   });
 };
 
-const currentDay = new Date(new Date().getTime() + -4 * 3600 * 1000).getDate();
+const currentDay = 28; // new Date(new Date().getTime() + -4 * 3600 * 1000).getDate();
 const dataUrl = `https://www.mass.gov/doc/covid-19-cases-in-massachusetts-as-of-march-${currentDay}-2020/download`;
 
 const proxyurl = "https://andrew-cors-anywhere.herokuapp.com/";
