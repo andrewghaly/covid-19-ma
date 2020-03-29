@@ -10,7 +10,7 @@
       id="container"
       style="height: 520px; width: 800px; margin: 0 auto; text-align:center; line-height: 520px"
     >
-      Downloading map...
+      Downloading map and latest data...
     </div>
 
     <script src="https://code.highcharts.com/maps/highmaps.js"></script>
@@ -23,11 +23,8 @@
     <script type="module" src="modules/case_data.js"></script>
     <script type="module" src="modules/fetch_data.js"></script>
     <script type="module" src="modules/create_map.js"></script>
-    <div style="text-align:center">
-      <a
-        href="https://www.mass.gov/doc/covid-19-cases-in-massachusetts-as-of-march-28-2020/download"
-        >Latest Report as of March 28, 2020</a
-      >
+    <div id="content" style="text-align:center">
+      <a id="latest-url" href=""></a>
       <h2 id="total-cases"></h2>
     </div>
   </body>

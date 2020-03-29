@@ -33,11 +33,11 @@ let pdfToText = function(data) {
   });
 };
 
+const currentDay = new Date(new Date().getTime() + -4 * 3600 * 1000).getDate();
+const dataUrl = `https://www.mass.gov/doc/covid-19-cases-in-massachusetts-as-of-march-${currentDay}-2020/download`;
+
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
-pdfToText(
-  proxyurl +
-    `https://www.mass.gov/doc/covid-19-cases-in-massachusetts-as-of-march-28-2020/download`
-)
+pdfToText(proxyurl + dataUrl)
   .then(function(result) {
     return result
       .match(/County\s+(.+)\s+Sex/)[1]
@@ -62,4 +62,9 @@ pdfToText(
     document.getElementById(
       "total-cases"
     ).innerText = `Confirmed cases reported = ${totalCases}`;
+
+    document.getElementById("latest-url").setAttribute("href", dataUrl);
+    document.getElementById(
+      "latest-url"
+    ).innerText = `Latest Report as of March ${currentDay}, 2020`;
   });
