@@ -1,18 +1,13 @@
 import createMap from "./create_map.js";
 import case_data from "./case_data.js";
 
-let pdfToText = function(data) {
+let pdfToText = function(url) {
   pdfjsLib.GlobalWorkerOptions.workerSrc =
     "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js";
 
-  pdfjsLib.workerSrc =
-    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js";
-  pdfjsLib.cMapUrl = "js/vendor/pdfjs/cmaps/";
-  pdfjsLib.cMapPacked = true;
-
-  return pdfjsLib.getDocument(data).promise.then(function(pdf) {
-    var pages = [];
-    for (var i = 0; i < pdf.numPages; i++) {
+  return pdfjsLib.getDocument(url).promise.then(function(pdf) {
+    let pages = [];
+    for (let i = 0; i < pdf.numPages; i++) {
       pages.push(i);
     }
     return Promise.all(
@@ -35,9 +30,9 @@ let pdfToText = function(data) {
 
 const currentDay = 28; // new Date(new Date().getTime() + -4 * 3600 * 1000).getDate();
 const dataUrl = `https://www.mass.gov/doc/covid-19-cases-in-massachusetts-as-of-march-${currentDay}-2020/download`;
+const proxyUrl = "https://andrew-cors-anywhere.herokuapp.com/";
 
-const proxyurl = "https://andrew-cors-anywhere.herokuapp.com/";
-pdfToText(proxyurl + dataUrl)
+pdfToText(proxyUrl + dataUrl)
   .then(function(result) {
     return result
       .match(/County\s+(.+)\s+Sex/)[1]
@@ -55,7 +50,9 @@ pdfToText(proxyurl + dataUrl)
         case_data.data.filter(c => c.name === lastCounty)[0].value = result[i];
       }
     }
+
     createMap(case_data.data);
+
     const totalCases = case_data.data
       .map(c => c.value)
       .reduce((a, b) => a + b, 0);
