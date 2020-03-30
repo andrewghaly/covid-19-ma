@@ -28,7 +28,7 @@ let pdfToText = function(url) {
   });
 };
 
-const currentDay = 29;
+const currentDay = 30;
 const currentMonth = "March";
 const currentYear = 2020;
 
@@ -59,6 +59,7 @@ pdfToText(proxyUrl + dataUrl)
     const totalCases = case_data.data
       .map(c => c.value)
       .reduce((a, b) => a + b, 0);
+
     document.getElementById(
       "total-cases"
     ).innerText = `Confirmed cases reported = ${totalCases}`;
