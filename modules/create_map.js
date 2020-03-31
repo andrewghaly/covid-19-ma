@@ -7,6 +7,12 @@ export default function createMap(data) {
   });
   document.getElementById("container").innerHTML = "Rendering map...";
 
+  Highcharts.setOptions({
+    lang: {
+      thousandsSep: ","
+    }
+  });
+
   Highcharts.mapChart("container", {
     title: {
       text: "COVID-19 Cases in Massachusetts"
