@@ -28,7 +28,7 @@ let pdfToText = function(url) {
   });
 };
 
-const currentDay = 30;
+const currentDay = 31;
 const currentMonth = "March";
 const currentYear = 2020;
 
