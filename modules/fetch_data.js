@@ -1,5 +1,6 @@
 import createMap from "./create_map.js";
 import case_data from "./case_data.js";
+import pingUrl from "./ping_url.js";
 
 let pdfToText = function(url) {
   pdfjsLib.GlobalWorkerOptions.workerSrc =
@@ -28,12 +29,9 @@ let pdfToText = function(url) {
   });
 };
 
-const currentDay = 30;
-const currentMonth = "March";
-const currentYear = 2020;
+const { currentDay, currentMonth, currentYear, dataUrl } = pingUrl();
 
-const dataUrl = `https://www.mass.gov/doc/covid-19-cases-in-massachusetts-as-of-${currentMonth.toLowerCase()}-${currentDay}-${currentYear}/download`;
-const proxyUrl = "https://andrew-cors-anywhere.herokuapp.com/";
+const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
 pdfToText(proxyUrl + dataUrl)
   .then(function(result) {
