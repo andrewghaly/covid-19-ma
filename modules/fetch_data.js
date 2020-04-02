@@ -28,8 +28,8 @@ let pdfToText = function(url) {
   });
 };
 
-const currentDay = 30;
-const currentMonth = "March";
+const currentDay = 1;
+const currentMonth = "April";
 const currentYear = 2020;
 
 const dataUrl = `https://www.mass.gov/doc/covid-19-cases-in-massachusetts-as-of-${currentMonth.toLowerCase()}-${currentDay}-${currentYear}/download`;
