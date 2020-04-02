@@ -29,18 +29,7 @@ let pdfToText = function(url) {
   });
 };
 
-<<<<<<< HEAD
 const { currentDay, currentMonth, currentYear, dataUrl } = pingUrl();
-=======
-<<<<<<< HEAD
-const currentDay = 1;
-const currentMonth = "April";
-=======
-const currentDay = 31;
-const currentMonth = "March";
->>>>>>> ffe2edf68e8fa18668fc182cbf153f0d69b48550
-const currentYear = 2020;
->>>>>>> master
 
 const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
