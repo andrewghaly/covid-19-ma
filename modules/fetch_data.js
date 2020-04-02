@@ -29,41 +29,43 @@ let pdfToText = function(url) {
   });
 };
 
-const { currentDay, currentMonth, currentYear, dataUrl } = pingUrl();
+pingUrl().then(result => {
+  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  const { day, month, year, url } = result;
 
-const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-
-pdfToText(proxyUrl + dataUrl)
-  .then(function(result) {
-    return result
-      .match(/County\s+(.+)\s+Sex/)[1]
-      .replace("Dukes and Nantucket", "Dukes   0   Nantucket")
-      .split(/\s\s\s/)
-      .map(r => (/\d/.test(r) ? parseInt(r.replace(/\s+/, "")) : r));
-  })
-  .then(function(result) {
-    let lastCounty = "";
-    for (let i = 0; i < result.length; i++) {
-      if (i % 2 === 0) {
-        lastCounty =
-          result[i] === "Unknown" ? result[i] : `${result[i]} County, MA`;
-      } else {
-        case_data.data.filter(c => c.name === lastCounty)[0].value = result[i];
+  pdfToText(proxyUrl + url)
+    .then(function(result) {
+      return result
+        .match(/County\s+(.+)\s+Sex/)[1]
+        .replace("Dukes and Nantucket", "Dukes   0   Nantucket")
+        .split(/\s\s\s/)
+        .map(r => (/\d/.test(r) ? parseInt(r.replace(/\s+/, "")) : r));
+    })
+    .then(function(result) {
+      let lastCounty = "";
+      for (let i = 0; i < result.length; i++) {
+        if (i % 2 === 0) {
+          lastCounty =
+            result[i] === "Unknown" ? result[i] : `${result[i]} County, MA`;
+        } else {
+          case_data.data.filter(c => c.name === lastCounty)[0].value =
+            result[i];
+        }
       }
-    }
 
-    createMap(case_data.data);
+      createMap(case_data.data);
 
-    const totalCases = case_data.data
-      .map(c => c.value)
-      .reduce((a, b) => a + b, 0);
+      const totalCases = case_data.data
+        .map(c => c.value)
+        .reduce((a, b) => a + b, 0);
 
-    document.getElementById(
-      "total-cases"
-    ).innerText = `Confirmed cases reported = ${totalCases}`;
+      document.getElementById(
+        "total-cases"
+      ).innerText = `Confirmed cases reported = ${totalCases}`;
 
-    document.getElementById("latest-url").setAttribute("href", dataUrl);
-    document.getElementById(
-      "latest-url"
-    ).innerText = `Latest Report as of ${currentMonth} ${currentDay}, ${currentYear}`;
-  });
+      document.getElementById("latest-url").setAttribute("href", url);
+      document.getElementById(
+        "latest-url"
+      ).innerText = `Latest Report as of ${month} ${day}, ${year}`;
+    });
+});

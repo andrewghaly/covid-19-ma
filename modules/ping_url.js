@@ -1,45 +1,40 @@
 export default function pingUrl() {
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-  ];
+  function getDateAndUrl(date) {
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
 
-  const firstDate = new Date();
-  console.log();
+    const day = date.getDate();
+    const month = monthNames[date.getMonth()];
+    const year = date.getFullYear();
+    const url = `https://www.mass.gov/doc/covid-19-cases-in-massachusetts-as-of-${month.toLowerCase()}-${day}-${year}/download`;
+    return { day, month, year, url };
+  }
 
-  const currentDay = firstDate.getDate();
-  const currentMonth = monthNames[firstDate.getMonth()];
-  const currentYear = firstDate.getFullYear();
-  const dataUrl = `https://www.mass.gov/doc/covid-19-cases-in-massachusetts-as-of-${currentMonth.toLowerCase()}-${currentDay}-${currentYear}/download`;
+  const todaysDate = getDateAndUrl(new Date());
 
-  console.log(dataUrl);
-  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  let yesterdaysDate = new Date();
+  yesterdaysDate = getDateAndUrl(
+    new Date(yesterdaysDate.setDate(yesterdaysDate.getDate() - 1))
+  );
 
-  console.log(new Date(new Date().getTime() + -4 * 3600 * 1000));
-
-  //   axios
-  //     .get(proxyUrl + dataUrl)
-  //     .then(function(response) {
-  //       console.log(response.status);
-  //     })
-  //     .catch(function(error) {
-  //       console.log(error);
-  //     });
-
-  //   return {
-  //     currentDay: 30,
-  //     currentMonth: "March",
-  //     currentYear: 2020,
-  //     dataUrl: `https://www.mass.gov/doc/covid-19-cases-in-massachusetts-as-of-${currentMonth.toLowerCase()}-${currentDay}-${currentYear}/download`
-  //   };
+  return axios
+    .get("https://cors-anywhere.herokuapp.com/" + todaysDate.url)
+    .then(() => {
+      return todaysDate;
+    })
+    .catch(() => {
+      return yesterdaysDate;
+    });
 }
