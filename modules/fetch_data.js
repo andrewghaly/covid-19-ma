@@ -29,8 +29,9 @@ let pdfToText = function(url) {
   });
 };
 
-pingUrl().then(result => {
-  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+const proxyUrl = "https://andrew-cors-anywhere.herokuapp.com/";
+
+pingUrl(proxyUrl).then(result => {
   const { day, month, year, url } = result;
 
   pdfToText(proxyUrl + url)

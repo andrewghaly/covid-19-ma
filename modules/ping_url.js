@@ -1,4 +1,4 @@
-export default function pingUrl() {
+export default function pingUrl(proxyUrl) {
   function getDateAndUrl(date) {
     const monthNames = [
       "January",
@@ -30,7 +30,7 @@ export default function pingUrl() {
   );
 
   return axios
-    .get("https://cors-anywhere.herokuapp.com/" + todaysDate.url)
+    .get(proxyUrl + todaysDate.url)
     .then(() => {
       return todaysDate;
     })
