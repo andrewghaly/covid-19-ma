@@ -29,7 +29,7 @@ let pdfToText = function(url) {
   });
 };
 
-const proxyUrl = "https://andrew-cors-anywhere.herokuapp.com/";
+const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
 pingUrl(proxyUrl).then(result => {
   const { day, month, year, url } = result;
@@ -38,7 +38,6 @@ pingUrl(proxyUrl).then(result => {
     .then(function(result) {
       return result
         .match(/County\s+(.+)\s+Sex/)[1]
-        .replace("Dukes and Nantucket", "Dukes   0   Nantucket")
         .split(/\s\s\s/)
         .map(r => (/\d/.test(r) ? parseInt(r.replace(/\s+/, "")) : r));
     })
