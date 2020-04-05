@@ -39,7 +39,7 @@ pingUrl(proxyUrl).then(result => {
       return result
         .match(/County\s+(.+)\s+Sex/)[1]
         .split(/\s\s\s/)
-        .map(r => (/\d/.test(r) ? parseInt(r.replace(/\s+/, "")) : r));
+        .map(r => (/\d/.test(r) ? parseInt(r.replace(/\s+/g, "")) : r));
     })
     .then(function(result) {
       let lastCounty = "";
