@@ -2,20 +2,20 @@ export default function createMap(data) {
   const countiesMap = Highcharts.geojson(
     Highcharts.maps["countries/us/us-ma-all"]
   );
-  Highcharts.each(countiesMap, function(mapPoint) {
+  Highcharts.each(countiesMap, function (mapPoint) {
     mapPoint.name = mapPoint.name + ", MA";
   });
   document.getElementById("container").innerHTML = "Rendering map...";
 
   Highcharts.setOptions({
     lang: {
-      thousandsSep: ","
-    }
+      thousandsSep: ",",
+    },
   });
 
   Highcharts.mapChart("container", {
     title: {
-      text: "COVID-19 Cases in Massachusetts"
+      text: "COVID-19 Cases in Massachusetts",
     },
     legend: {
       layout: "vertical",
@@ -25,10 +25,10 @@ export default function createMap(data) {
         (Highcharts.defaultOptions &&
           Highcharts.defaultOptions.legend &&
           Highcharts.defaultOptions.legend.backgroundColor) ||
-        "rgba(255, 255, 255, 0.85)"
+        "rgba(255, 255, 255, 0.85)",
     },
     mapNavigation: {
-      enabled: true
+      enabled: true,
     },
     colorAxis: {
       min: 0,
@@ -36,14 +36,14 @@ export default function createMap(data) {
       stops: [
         [0, "#F1EEF6"],
         [0.65, "#900037"],
-        [1, "#500007"]
+        [1, "#500007"],
       ],
       labels: {
-        format: "{value} cases"
-      }
+        format: "{value} cases",
+      },
     },
     credits: {
-      enabled: false
+      enabled: false,
     },
     series: [
       {
@@ -52,15 +52,15 @@ export default function createMap(data) {
         joinBy: ["hc-key", "code"],
         name: "",
         tooltip: {
-          valueSuffix: " cases "
+          valueSuffix: " cases ",
         },
         borderWidth: 0.5,
         states: {
           hover: {
-            color: "#a4edba"
-          }
-        }
-      }
-    ]
+            color: "#a4edba",
+          },
+        },
+      },
+    ],
   });
 }

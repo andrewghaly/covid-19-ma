@@ -12,7 +12,7 @@ export default function pingUrl(proxyUrl) {
       "September",
       "October",
       "November",
-      "December"
+      "December",
     ];
 
     const day = date.getDate();
