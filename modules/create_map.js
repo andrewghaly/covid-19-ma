@@ -1,4 +1,6 @@
+import unknown_feature from "./unknown_feature.js";
 export default function createMap(data) {
+  Highcharts.maps["countries/us/us-ma-all"].features.push(unknown_feature);
   const countiesMap = Highcharts.geojson(
     Highcharts.maps["countries/us/us-ma-all"]
   );
