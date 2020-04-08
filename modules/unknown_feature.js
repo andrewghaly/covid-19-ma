@@ -1,13 +1,7 @@
 export default {
   type: "Feature",
-  id: "US.MA.000",
   properties: {
-    "hc-group": "admin2",
-    "hc-middle-x": 0.39,
-    "hc-middle-y": 0.42,
     "hc-key": "us-ma-000",
-    "hc-a2": "UK",
-    fips: "25000",
     name: "Unknown",
   },
   geometry: {
