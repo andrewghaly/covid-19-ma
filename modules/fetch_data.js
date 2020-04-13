@@ -30,7 +30,7 @@ let pdfToText = function (url) {
   });
 };
 
-const proxyUrl = "https://andrew-cors-anywhere.herokuapp.com/";
+const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
 pingUrl(proxyUrl).then((result) => {
   const { day, month, year, url } = result;
@@ -74,5 +74,5 @@ pingUrl(proxyUrl).then((result) => {
 axios
   .get("https://covidtracking.com/api/v1/states/ma/daily.json")
   .then((response) => {
-    return createGraph(response.data.map((d) => d.positive).reverse());
+    return createGraph(response.data.map((d) => d.positiveIncrease).reverse());
   });
