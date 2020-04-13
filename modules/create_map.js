@@ -8,7 +8,7 @@ export default function createMap(data) {
     mapPoint.name =
       mapPoint.name === "Unknown" ? "Unknown" : mapPoint.name + ", MA";
   });
-  document.getElementById("container").innerHTML = "Rendering map...";
+  document.getElementById("counties-map").innerHTML = "Rendering map...";
 
   Highcharts.setOptions({
     lang: {
@@ -16,7 +16,7 @@ export default function createMap(data) {
     },
   });
 
-  Highcharts.mapChart("container", {
+  Highcharts.mapChart("counties-map", {
     title: {
       text: "COVID-19 Cases in Massachusetts",
     },

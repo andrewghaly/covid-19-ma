@@ -1,4 +1,5 @@
 import createMap from "./create_map.js";
+import createGraph from "./create_graph.js";
 import case_data from "./case_data.js";
 import pingUrl from "./ping_url.js";
 
@@ -69,3 +70,9 @@ pingUrl(proxyUrl).then((result) => {
       ).innerText = `Latest Report as of ${month} ${day}, ${year}`;
     });
 });
+
+axios
+  .get("https://covidtracking.com/api/v1/states/ma/daily.json")
+  .then((response) => {
+    return createGraph(response.data.map((d) => d.positive).reverse());
+  });
