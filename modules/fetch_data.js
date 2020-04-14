@@ -30,7 +30,7 @@ let pdfToText = function (url) {
   });
 };
 
-const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+const proxyUrl = "https://andrew-cors-anywhere.herokuapp.com/";
 
 pingUrl(proxyUrl).then((result) => {
   const { day, month, year, url } = result;
