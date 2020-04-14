@@ -18,7 +18,7 @@ export default function createMap(data) {
 
   Highcharts.mapChart("counties-map", {
     title: {
-      text: "COVID-19 Cases in Massachusetts",
+      text: "",
     },
     legend: {
       layout: "vertical",

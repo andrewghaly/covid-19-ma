@@ -4,34 +4,58 @@
     <meta charset="utf-8" />
     <title>COVID-19 Cases in Massachusetts</title>
     <link rel="shortcut icon" href="favicon.ico" />
-
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
     <script src="https://code.highcharts.com/maps/highmaps.js"></script>
     <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/mapdata/countries/us/us-ma-all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-
     <script type="module" src="modules/fetch_data.js"></script>
+    <style>
+      .nav-pills .nav-link:not(.active) {
+        background-color: lightgrey !important;
+        color: white;
+      }
+      .nav-pills .nav-link {
+        background-color: grey !important;
+        color: white;
+      }
+    </style>
   </head>
-  <!-- style="
-        height: 520px;
-        width: 800px;
-        margin: 0 auto;
-        text-align: center;
-        line-height: 520px;
-      " -->
   <body>
-    <div class="container">
-      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <div class="container" style="text-align: center;">
+      <h2>COVID-19 Cases in Massachusetts</h2>
+      <div class="tab-content" id="pills-tabContent">
+        <div
+          class="tab-pane fade show active"
+          id="pills-map"
+          role="tabpanel"
+          aria-labelledby="pills-map-tab"
+        >
+          <div id="counties-map">
+            Downloading map and latest data...
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="pills-daily-cases"
+          role="tabpanel"
+          aria-labelledby="pills-daily-cases-tab"
+        >
+          <div id="daily-cases"></div>
+        </div>
+      </div>
+      <ul
+        class="nav nav-pills mb-3 justify-content-center"
+        id="pills-tab"
+        role="tablist"
+      >
         <li class="nav-item">
           <a
             class="nav-link active"
@@ -57,27 +81,6 @@
           >
         </li>
       </ul>
-      <div class="tab-content" id="pills-tabContent">
-        <div
-          class="tab-pane fade show active"
-          id="pills-map"
-          role="tabpanel"
-          aria-labelledby="pills-map-tab"
-        >
-          <div id="counties-map">
-            Downloading map and latest data...
-          </div>
-        </div>
-        <div
-          class="tab-pane fade"
-          id="pills-daily-cases"
-          role="tabpanel"
-          aria-labelledby="pills-daily-cases-tab"
-        >
-          <div id="daily-cases"></div>
-        </div>
-      </div>
-
       <div id="content" style="text-align: center;">
         <a id="latest-url" href=""></a>
         <h2 id="total-cases"></h2>
