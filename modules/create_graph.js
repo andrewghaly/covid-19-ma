@@ -43,7 +43,7 @@ export default function createGraph(data) {
       {
         name: "Daily Cases",
         data,
-        pointStart: Date.UTC(2020, 2, 4),
+        pointStart: Date.UTC(2020, 2, 12),
         pointInterval: 24 * 3600 * 1000,
       },
     ],
