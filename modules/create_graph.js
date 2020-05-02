@@ -48,6 +48,7 @@ export default function createGraph(data) {
           type: "polynomial",
           color: "rgba(223, 183, 83, .9)",
           dashStyle: "dash",
+          lineWidth: 5,
         },
         name: "Daily Cases",
         data,
