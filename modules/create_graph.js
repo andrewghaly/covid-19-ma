@@ -1,4 +1,5 @@
 export default function createGraph(data) {
+  data = data.map((point, index) => [Date.UTC(2020, 2, index + 12), point]);
   Highcharts.chart("daily-cases", {
     chart: {
       type: "column",
@@ -24,8 +25,8 @@ export default function createGraph(data) {
     tooltip: {
       headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
       pointFormat:
-        '<tr><td style="color:black;padding:0">{series.name}: </td>' +
-        '<td style="padding:0"><b>{point.y:.f}</b></td></tr>',
+        '<tr><td style="color:black;">{series.name}: </td>' +
+        "<td ><b>{point.y:.2f}</b></td></tr>",
       footerFormat: "</table>",
       shared: true,
       useHTML: true,
@@ -41,10 +42,15 @@ export default function createGraph(data) {
     },
     series: [
       {
+        regression: true,
+        regressionSettings: {
+          name: "Average",
+          type: "polynomial",
+          color: "rgba(223, 183, 83, .9)",
+          dashStyle: "dash",
+        },
         name: "Daily Cases",
         data,
-        pointStart: Date.UTC(2020, 2, 12),
-        pointInterval: 24 * 3600 * 1000,
       },
     ],
   });
