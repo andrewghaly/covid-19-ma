@@ -60,8 +60,8 @@ for (let [stateCode, stateName] of Object.entries(states)) {
 
 function fetchDataByState(stateName, stateCode) {
   $("#all-states").append(
-    `<span style="float:left;">
-    <h3 class="center">${stateName}</h3>
+    `<span style="float:left;border: 1px solid black;margin:5px;">
+    <h4 style="text-align: center;">${stateName}</h4>
     <div id="daily-cases-${stateCode}" class="state-graph"></div>
     </span>`
   );
