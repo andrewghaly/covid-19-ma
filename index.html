@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>COVID-19 Cases in Massachusetts</title>
+    <title>COVID-19 Cases</title>
     <link rel="shortcut icon" href="favicon.ico" />
     <link
       rel="stylesheet"
@@ -33,26 +33,27 @@
   </head>
   <body>
     <div class="container" style="text-align: center;">
-      <h2>COVID-19 Cases in Massachusetts</h2>
       <div class="tab-content" id="pills-tabContent">
         <div
           class="tab-pane fade show active"
-          id="pills-daily-cases"
+          id="pills-daily-cases-usa"
           role="tabpanel"
-          aria-labelledby="pills-daily-cases-tab"
+          aria-labelledby="pills-daily-cases-usa-tab"
         >
-          <div id="daily-cases"></div>
+          <h2>COVID-19 Cases in USA</h2>
+
+          <div id="daily-cases-usa"></div>
         </div>
-        <!-- <div
+
+        <div
           class="tab-pane fade"
-          id="pills-map"
+          id="pills-daily-cases-ma"
           role="tabpanel"
-          aria-labelledby="pills-map-tab"
+          aria-labelledby="pills-daily-cases-ma-tab"
         >
-          <div id="counties-map">
-            Downloading map and latest data...
-          </div>
-        </div> -->
+          <h2>COVID-19 Cases in Massachusetts</h2>
+          <div id="daily-cases-ma"></div>
+        </div>
       </div>
       <ul
         class="nav nav-pills mb-3 justify-content-center"
@@ -62,32 +63,29 @@
         <li class="nav-item">
           <a
             class="nav-link active"
-            id="pills-daily-cases-tab"
+            id="pills-daily-cases-usa-tab"
             data-toggle="pill"
-            href="#pills-daily-cases"
+            href="#pills-daily-cases-usa"
             role="tab"
-            aria-controls="pills-daily-cases"
+            aria-controls="pills-daily-cases-usa"
+            aria-selected="true"
+            >USA Daily Cases</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="pills-daily-cases-ma-tab"
+            data-toggle="pill"
+            href="#pills-daily-cases-ma"
+            role="tab"
+            aria-controls="pills-daily-cases-ma"
             aria-selected="false"
             >Daily Cases</a
           >
         </li>
-        <!-- <li class="nav-item">
-          <a
-            class="nav-link"
-            id="pills-map-tab"
-            data-toggle="pill"
-            href="#pills-map"
-            role="tab"
-            aria-controls="pills-map"
-            aria-selected="true"
-            >County Map</a
-          >
-        </li> -->
       </ul>
-      <!-- <div id="content" style="text-align: center;">
-        <a id="latest-url" href=""></a>
-        <h2 id="total-cases"></h2>
-      </div> -->
     </div>
   </body>
 </html>

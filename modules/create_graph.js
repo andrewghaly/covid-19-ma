@@ -1,6 +1,6 @@
-export default function createGraph(data) {
+export default function createGraph(data, divId) {
   data = data.map((point, index) => [Date.UTC(2020, 2, index + 12), point]);
-  Highcharts.chart("daily-cases", {
+  Highcharts.chart(divId, {
     chart: {
       type: "column",
     },
