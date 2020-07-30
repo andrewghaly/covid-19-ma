@@ -1,5 +1,5 @@
-export default function createGraph(data, divId) {
-  data = data.map((point, index) => [Date.UTC(2020, 2, index + 12), point]);
+export default function createGraph(data, divId, month, offset) {
+  data = data.map((point, index) => [Date.UTC(2020, month, index + offset), point]);
   Highcharts.chart(divId, {
     chart: {
       type: "column",
