@@ -72,7 +72,8 @@ function fetchDataByState(stateName, stateCode) {
     .then((response) => {
       return createGraph(
         response.data.map((d) => d.positiveIncrease).reverse(),
-        `daily-cases-${stateCode}`
+        `daily-cases-${stateCode}`,
+        response.data[response.data.length - 1].date
       );
     });
 }

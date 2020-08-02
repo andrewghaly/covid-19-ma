@@ -1,5 +1,11 @@
-export default function createGraph(data, divId, month, offset) {
-  data = data.map((point, index) => [Date.UTC(2020, month, index + offset), point]);
+export default function createGraph(data, divId, date) {
+  const year = parseInt(date.toString().slice(0, 4));
+  const month = parseInt(date.toString().slice(4, 6)) - 1;
+  const day = parseInt(date.toString().slice(6, 8));
+  data = data.map((point, index) => [
+    Date.UTC(year, month, index + day),
+    point,
+  ]);
   Highcharts.chart(divId, {
     chart: {
       type: "column",

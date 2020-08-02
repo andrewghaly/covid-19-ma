@@ -6,8 +6,7 @@ axios
     return createGraph(
       response.data.map((d) => d.positiveIncrease).reverse(),
       "daily-cases-ma",
-      2,
-      12
+      response.data[response.data.length - 1].date
     );
   });
 
@@ -15,7 +14,6 @@ axios.get("https://covidtracking.com/api/v1/us/daily.json").then((response) => {
   return createGraph(
     response.data.map((d) => d.positiveIncrease).reverse(),
     "daily-cases-usa",
-    1,
-    -9
+    response.data[response.data.length - 1].date
   );
 });
