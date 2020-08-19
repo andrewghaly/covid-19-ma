@@ -67,7 +67,7 @@ function fetchDataByState(stateName, stateCode) {
   );
   axios
     .get(
-      `https://covidtracking.com/api/v1/states/${stateCode.toLowerCase()}/daily.json`
+      `https://andrew-cors-anywhere.herokuapp.com/https://covidtracking.com/api/v1/states/${stateCode.toLowerCase()}/daily.json`
     )
     .then((response) => {
       return createGraph(

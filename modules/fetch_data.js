@@ -1,7 +1,7 @@
 import createGraph from "./create_graph.js";
 
 axios
-  .get("https://covidtracking.com/api/v1/states/ma/daily.json")
+  .get("https://andrew-cors-anywhere.herokuapp.com/https://covidtracking.com/api/v1/states/ma/daily.json",)
   .then((response) => {
     return createGraph(
       response.data.map((d) => d.positiveIncrease).reverse(),
@@ -10,7 +10,7 @@ axios
     );
   });
 
-axios.get("https://covidtracking.com/api/v1/us/daily.json").then((response) => {
+axios.get("https://andrew-cors-anywhere.herokuapp.com/https://covidtracking.com/api/v1/us/daily.json").then((response) => {
   return createGraph(
     response.data.map((d) => d.positiveIncrease).reverse(),
     "daily-cases-usa",
