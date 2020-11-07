@@ -6,7 +6,7 @@ export default function createGraph(data, divId, date) {
     Date.UTC(year, month, index + day),
     point,
   ]);
-  Highcharts.chart(divId, {
+  return Highcharts.chart(divId, {
     chart: {
       type: "column",
     },
