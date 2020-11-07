@@ -57,6 +57,8 @@ const states = {
 for (let [stateCode, stateName] of Object.entries(states)) {
   fetchDataByState(stateName, stateCode);
 }
+let charts = []
+let isDailyCaseVisisble = true;
 
 function fetchDataByState(stateName, stateCode) {
   $("#all-states").append(
@@ -70,10 +72,15 @@ function fetchDataByState(stateName, stateCode) {
       `https://andrew-cors-anywhere.herokuapp.com/https://covidtracking.com/api/v1/states/${stateCode.toLowerCase()}/daily.json`
     )
     .then((response) => {
-      return createGraph(
+      charts.push(createGraph(
         response.data.map((d) => d.positiveIncrease).reverse(),
         `daily-cases-${stateCode}`,
         response.data[response.data.length - 1].date
-      );
+      ));
     });
 }
+
+$("#toggle-all").on("click", () => {
+  isDailyCaseVisisble = !isDailyCaseVisisble;
+  charts.map(m => m.series[0].setVisible(isDailyCaseVisisble));
+})
