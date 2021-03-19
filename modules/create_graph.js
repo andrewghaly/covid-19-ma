@@ -1,11 +1,12 @@
 export default function createGraph(data, divId, date) {
-  const year = parseInt(date.toString().slice(0, 4));
-  const month = parseInt(date.toString().slice(4, 6)) - 1;
-  const day = parseInt(date.toString().slice(6, 8));
-  data = data.map((point, index) => [
-    Date.UTC(year, month, index + day),
-    point,
-  ]);
+  const k = new Date(date);
+
+  function getDate(index, k) {
+    const tempDate = new Date(k);
+    return tempDate.setDate(tempDate.getDate() + index);
+  }
+
+  data = data.map((point, index) => [getDate(index, k), point]);
   return Highcharts.chart(divId, {
     chart: {
       type: "column",

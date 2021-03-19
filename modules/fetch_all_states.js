@@ -57,7 +57,7 @@ const states = {
 for (let [stateCode, stateName] of Object.entries(states)) {
   fetchDataByState(stateName, stateCode);
 }
-let charts = []
+let charts = [];
 let isDailyCaseVisisble = true;
 
 function fetchDataByState(stateName, stateCode) {
@@ -69,18 +69,25 @@ function fetchDataByState(stateName, stateCode) {
   );
   axios
     .get(
-      `https://andrew-cors-anywhere.herokuapp.com/https://covidtracking.com/api/v1/states/${stateCode.toLowerCase()}/daily.json`
+      `https://data.cdc.gov/resource/9mfq-cb36.json?state=${stateCode}&$select=new_case,submission_date&$order=submission_date`,
+      {
+        params: {
+          $$app_token: "w9o6Tehqvczxv6EDdfQIGMhN9",
+        },
+      }
     )
     .then((response) => {
-      charts.push(createGraph(
-        response.data.map((d) => d.positiveIncrease).reverse(),
-        `daily-cases-${stateCode}`,
-        response.data[response.data.length - 1].date
-      ));
+      charts.push(
+        createGraph(
+          response.data.map((d) => parseInt(d.new_case)),
+          `daily-cases-${stateCode}`,
+          response.data[0].submission_date
+        )
+      );
     });
 }
 
 $("#toggle-all").on("click", () => {
   isDailyCaseVisisble = !isDailyCaseVisisble;
-  charts.map(m => m.series[0].setVisible(isDailyCaseVisisble));
-})
+  charts.map((m) => m.series[0].setVisible(isDailyCaseVisisble));
+});
