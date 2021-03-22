@@ -11,8 +11,10 @@ export default function createGraph(data, divId, date) {
     chart: {
       type: "column",
       zoomType: 'x',
+      pinchType: 'x',
       panning: true,
-      panKey: 'shift'
+      panKey: 'shift',
+      followTouchMove: true
     },
     title: {
       text: "",
