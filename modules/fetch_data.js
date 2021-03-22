@@ -10,7 +10,7 @@ axios
     }
   )
   .then((response) => {
-    return createGraph(response.data, "daily-cases-usa", "");
+    return createGraph(response.data, "daily-cases-usa");
   });
 
 axios
