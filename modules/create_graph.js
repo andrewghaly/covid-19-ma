@@ -10,6 +10,9 @@ export default function createGraph(data, divId, date) {
   return Highcharts.chart(divId, {
     chart: {
       type: "column",
+      zoomType: 'x',
+      panning: true,
+      panKey: 'shift'
     },
     title: {
       text: "",
