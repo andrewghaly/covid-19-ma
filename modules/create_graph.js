@@ -1,20 +1,21 @@
-export default function createGraph(data, divId, date) {
-  const k = new Date(date);
+export default function createGraph(data, divId) {
+  const date = new Date(data[0].submission_date);
+  data = data.map((d) => parseInt(d.new_case));
 
-  function getDate(index, k) {
-    const tempDate = new Date(k);
+  function getDate(index, date) {
+    const tempDate = new Date(date);
     return tempDate.setDate(tempDate.getDate() + index);
   }
 
-  data = data.map((point, index) => [getDate(index, k), point]);
+  data = data.map((point, index) => [getDate(index, date), point]);
   return Highcharts.chart(divId, {
     chart: {
       type: "column",
-      zoomType: 'x',
-      pinchType: 'x',
+      zoomType: "x",
+      pinchType: "x",
       panning: true,
-      panKey: 'shift',
-      followTouchMove: true
+      panKey: "shift",
+      followTouchMove: true,
     },
     title: {
       text: "",

@@ -77,13 +77,7 @@ function fetchDataByState(stateName, stateCode) {
       }
     )
     .then((response) => {
-      charts.push(
-        createGraph(
-          response.data.map((d) => parseInt(d.new_case)),
-          `daily-cases-${stateCode}`,
-          response.data[0].submission_date
-        )
-      );
+      charts.push(createGraph(response.data, `daily-cases-${stateCode}`));
     });
 }
 
